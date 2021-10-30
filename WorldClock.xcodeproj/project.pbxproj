@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD94D7A2272DC9D800EF41DF /* WorldClockAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94D7A1272DC9D800EF41DF /* WorldClockAppApp.swift */; };
-		DD94D7A4272DC9D800EF41DF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94D7A3272DC9D800EF41DF /* ContentView.swift */; };
+		DD94D7A2272DC9D800EF41DF /* WorldClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94D7A1272DC9D800EF41DF /* WorldClockApp.swift */; };
+		DD94D7A4272DC9D800EF41DF /* WorldClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94D7A3272DC9D800EF41DF /* WorldClockView.swift */; };
 		DD94D7A6272DC9D900EF41DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD94D7A5272DC9D900EF41DF /* Assets.xcassets */; };
 		DD94D7A9272DC9D900EF41DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD94D7A8272DC9D900EF41DF /* Preview Assets.xcassets */; };
+		DD94D7B1272DCB7600EF41DF /* WorldClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94D7B0272DCB7600EF41DF /* WorldClockViewModel.swift */; };
+		DD94D7B3272DCBB200EF41DF /* WorldClockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94D7B2272DCBB200EF41DF /* WorldClockModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DD94D79E272DC9D800EF41DF /* WorldClockApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldClockApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD94D7A1272DC9D800EF41DF /* WorldClockAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockAppApp.swift; sourceTree = "<group>"; };
-		DD94D7A3272DC9D800EF41DF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DD94D79E272DC9D800EF41DF /* WorldClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD94D7A1272DC9D800EF41DF /* WorldClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockApp.swift; sourceTree = "<group>"; };
+		DD94D7A3272DC9D800EF41DF /* WorldClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockView.swift; sourceTree = "<group>"; };
 		DD94D7A5272DC9D900EF41DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD94D7A8272DC9D900EF41DF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DD94D7AF272DCA9100EF41DF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DD94D7B0272DCB7600EF41DF /* WorldClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockViewModel.swift; sourceTree = "<group>"; };
+		DD94D7B2272DCBB200EF41DF /* WorldClockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +41,7 @@
 			isa = PBXGroup;
 			children = (
 				DD94D7AF272DCA9100EF41DF /* README.md */,
-				DD94D7A0272DC9D800EF41DF /* WorldClockApp */,
+				DD94D7A0272DC9D800EF41DF /* WorldClock */,
 				DD94D79F272DC9D800EF41DF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,20 +49,22 @@
 		DD94D79F272DC9D800EF41DF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD94D79E272DC9D800EF41DF /* WorldClockApp.app */,
+				DD94D79E272DC9D800EF41DF /* WorldClock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DD94D7A0272DC9D800EF41DF /* WorldClockApp */ = {
+		DD94D7A0272DC9D800EF41DF /* WorldClock */ = {
 			isa = PBXGroup;
 			children = (
-				DD94D7A1272DC9D800EF41DF /* WorldClockAppApp.swift */,
-				DD94D7A3272DC9D800EF41DF /* ContentView.swift */,
+				DD94D7A1272DC9D800EF41DF /* WorldClockApp.swift */,
+				DD94D7A3272DC9D800EF41DF /* WorldClockView.swift */,
 				DD94D7A5272DC9D900EF41DF /* Assets.xcassets */,
 				DD94D7A7272DC9D900EF41DF /* Preview Content */,
+				DD94D7B0272DCB7600EF41DF /* WorldClockViewModel.swift */,
+				DD94D7B2272DCBB200EF41DF /* WorldClockModel.swift */,
 			);
-			path = WorldClockApp;
+			path = WorldClock;
 			sourceTree = "<group>";
 		};
 		DD94D7A7272DC9D900EF41DF /* Preview Content */ = {
@@ -72,9 +78,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DD94D79D272DC9D800EF41DF /* WorldClockApp */ = {
+		DD94D79D272DC9D800EF41DF /* WorldClock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD94D7AC272DC9D900EF41DF /* Build configuration list for PBXNativeTarget "WorldClockApp" */;
+			buildConfigurationList = DD94D7AC272DC9D900EF41DF /* Build configuration list for PBXNativeTarget "WorldClock" */;
 			buildPhases = (
 				DD94D79A272DC9D800EF41DF /* Sources */,
 				DD94D79B272DC9D800EF41DF /* Frameworks */,
@@ -84,9 +90,9 @@
 			);
 			dependencies = (
 			);
-			name = WorldClockApp;
+			name = WorldClock;
 			productName = WorldClockApp;
-			productReference = DD94D79E272DC9D800EF41DF /* WorldClockApp.app */;
+			productReference = DD94D79E272DC9D800EF41DF /* WorldClock.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +110,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DD94D799272DC9D800EF41DF /* Build configuration list for PBXProject "WorldClockApp" */;
+			buildConfigurationList = DD94D799272DC9D800EF41DF /* Build configuration list for PBXProject "WorldClock" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -117,7 +123,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DD94D79D272DC9D800EF41DF /* WorldClockApp */,
+				DD94D79D272DC9D800EF41DF /* WorldClock */,
 			);
 		};
 /* End PBXProject section */
@@ -139,8 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD94D7A4272DC9D800EF41DF /* ContentView.swift in Sources */,
-				DD94D7A2272DC9D800EF41DF /* WorldClockAppApp.swift in Sources */,
+				DD94D7A4272DC9D800EF41DF /* WorldClockView.swift in Sources */,
+				DD94D7B3272DCBB200EF41DF /* WorldClockModel.swift in Sources */,
+				DD94D7A2272DC9D800EF41DF /* WorldClockApp.swift in Sources */,
+				DD94D7B1272DCB7600EF41DF /* WorldClockViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +332,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DD94D799272DC9D800EF41DF /* Build configuration list for PBXProject "WorldClockApp" */ = {
+		DD94D799272DC9D800EF41DF /* Build configuration list for PBXProject "WorldClock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD94D7AA272DC9D900EF41DF /* Debug */,
@@ -333,7 +341,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD94D7AC272DC9D900EF41DF /* Build configuration list for PBXNativeTarget "WorldClockApp" */ = {
+		DD94D7AC272DC9D900EF41DF /* Build configuration list for PBXNativeTarget "WorldClock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD94D7AD272DC9D900EF41DF /* Debug */,
