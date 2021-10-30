@@ -19,6 +19,7 @@
 		DD94D7A3272DC9D800EF41DF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DD94D7A5272DC9D900EF41DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD94D7A8272DC9D900EF41DF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DD94D7AF272DCA9100EF41DF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +36,7 @@
 		DD94D795272DC9D800EF41DF = {
 			isa = PBXGroup;
 			children = (
+				DD94D7AF272DCA9100EF41DF /* README.md */,
 				DD94D7A0272DC9D800EF41DF /* WorldClockApp */,
 				DD94D79F272DC9D800EF41DF /* Products */,
 			);
