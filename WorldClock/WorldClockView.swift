@@ -12,43 +12,6 @@ struct WorldClockView: View{
     
 }
 
-//pointer
-struct Pointer: Shape{
-    
-    var width: CGFloat
-    var height: CGFloat
-    //TODO: pass color
-    
-    
-    func path(in rect: CGRect) -> Path{
-        Path{ p in
-            print(rect.maxY)
-            let center = CGPoint(x: rect.midX, y: rect.midY)
-            
-            p.move(to: center)
-            p.addLine(to: CGPoint(x: rect.midX, y: rect.maxY/2-height))
-        }
-        .strokedPath(StrokeStyle(lineWidth: width, lineCap: .round, lineJoin: .round ))
-    }
-    
-}
-
-//clockface midpoint
-struct MidPoint: Shape{
-    
-    var radius: CGFloat
-    
-    func path(in rect: CGRect) -> Path{
-        let center = CGPoint(x: rect.midX-(radius/2), y: rect.midY-(radius/2))
-        
-        return Path{ p in
-            p.move(to: center)
-            p.addEllipse(in: CGRect(origin: center, size: CGSize(width: radius, height: radius)))
-        }
-    }
-}
-
-
 //actual clock face
 struct ClockFaceView: View{
     
@@ -66,17 +29,12 @@ struct ClockFaceView: View{
                 tick in
                 self.tick(at: tick)
             }
-            //minutes pointer
-            Pointer(width: 4.5, height: size.width/2-30)
-                .fill(Color.black)
-            //hour pointer
-            Pointer(width: 6, height: size.width/2-58)
-                .fill(Color.black)
-                .rotationEffect(Angle.degrees(90))
-            //seconds pointer
-            Pointer(width: 1.5, height: size.width/2-26)
-                .fill(Color.orange)
-                .rotationEffect(Angle.degrees(120))
+            
+            //pointers (h,m,s)
+            Pointer(type: .hour, hour: 5, minute: 10, second: 32) //hours
+            Pointer(type: .minute, hour: 5, minute: 10, second: 32) //minutes
+            Pointer(type: .second, hour: 5, minute: 10, second: 32) //seconds
+            
             //clockface midpoint
             MidPoint(radius: 12).fill(Color.orange)
             
