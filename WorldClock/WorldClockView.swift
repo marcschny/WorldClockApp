@@ -3,9 +3,11 @@ import SwiftUI
 //TODO: replace hard coded values
 struct WorldClockView: View{
     
+    @ObservedObject var viewModel: WorldClockViewModel
+    
     var body: some View{
         VStack{
-            ClockFaceView()
+            ClockFaceView(viewModel: viewModel)
         }.padding()
     }
     
@@ -14,6 +16,9 @@ struct WorldClockView: View{
 
 //actual clock face
 struct ClockFaceView: View{
+    
+    var viewModel: WorldClockViewModel
+    
     
     var body: some View{
         GeometryReader{ geometry in
@@ -31,9 +36,9 @@ struct ClockFaceView: View{
             }
             
             //pointers (h,m,s)
-            Pointer(type: .hour, hour: 5, minute: 10, second: 32) //hours
-            Pointer(type: .minute, hour: 5, minute: 10, second: 32) //minutes
-            Pointer(type: .second, hour: 5, minute: 10, second: 32) //seconds
+            Pointer(type: .second, worldClockModel: viewModel.getTime()) //seconds
+            Pointer(type: .minute, worldClockModel: viewModel.getTime()) //minutes
+            Pointer(type: .hour, worldClockModel: viewModel.getTime()) //hours
             
             //clockface midpoint
             MidPoint(radius: 12).fill(Color.orange)
@@ -60,6 +65,6 @@ struct ClockFaceView: View{
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        WorldClockView()
+        WorldClockView(viewModel: WorldClockViewModel())
     }
 }

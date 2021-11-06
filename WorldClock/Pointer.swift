@@ -3,9 +3,7 @@ import SwiftUI
 struct Pointer: View{
     
     let type: PointerType
-    let hour: Int
-    let minute: Int
-    let second: Int
+    let worldClockModel: WorldClockModel
     
     //enumeration for different pointer types
     enum PointerType{
@@ -39,11 +37,11 @@ struct Pointer: View{
         }
         
         //associated pointer angle
-        func angle(hour: Int, minute: Int, second: Int) -> Angle{
+        func angle(worldClockModel: WorldClockModel) -> Angle{
             switch self{
-                case .hour: return Angle(degrees: (Double(hour) + Double(minute/60)) * timeMultiplier(type: .hour))
-                case .minute: return Angle(degrees: Double(minute) * timeMultiplier(type: .minute))
-                case .second: return Angle(degrees: Double(second) * timeMultiplier(type: .second))
+            case .hour: return Angle(degrees: (Double(worldClockModel.hours) + Double(worldClockModel.minutes/60)) * timeMultiplier(type: .hour))
+            case .minute: return Angle(degrees: Double(worldClockModel.minutes) * timeMultiplier(type: .minute))
+            case .second: return Angle(degrees: Double(worldClockModel.seconds) * timeMultiplier(type: .second))
             }
         }
         
@@ -69,7 +67,7 @@ struct Pointer: View{
             }
             .stroke(style: StrokeStyle(lineWidth: self.type.width, lineCap: .round))
             .fill(self.type.color)
-            .rotationEffect(self.type.angle(hour: self.hour, minute: self.minute, second: self.second))
+            .rotationEffect(self.type.angle(worldClockModel: worldClockModel))
         }
     }
     
