@@ -39,7 +39,7 @@ struct Pointer: View{
         //associated pointer angle
         func angle(worldClockModel: WorldClockModel) -> Angle{
             switch self{
-            case .hour: return Angle(degrees: (Double(worldClockModel.hours) + Double(worldClockModel.minutes/60)) * timeMultiplier(type: .hour))
+            case .hour: return Angle(degrees: (Double(worldClockModel.hours) + Double(worldClockModel.minutes)/60) * timeMultiplier(type: .hour))
             case .minute: return Angle(degrees: Double(worldClockModel.minutes) * timeMultiplier(type: .minute))
             case .second: return Angle(degrees: Double(worldClockModel.seconds) * timeMultiplier(type: .second))
             }
@@ -61,7 +61,7 @@ struct Pointer: View{
         GeometryReader{ geo in
             Path{ p in
                 let center = CGPoint(x: geo.size.width/2, y: geo.size.height/2)
-                print("size: "+geo.size.width.description+", "+geo.size.height.description)
+                //print("size: "+geo.size.width.description+", "+geo.size.height.description)
                 p.move(to: center)
                 p.addLine(to: CGPoint(x: center.x, y: center.y - self.type.length*geo.size.width ))
             }

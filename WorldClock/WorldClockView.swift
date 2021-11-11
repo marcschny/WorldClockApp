@@ -6,26 +6,12 @@ struct WorldClockView: View{
     @ObservedObject var viewModel: WorldClockViewModel
     
     var body: some View{
-        VStack{
-            ClockFaceView(viewModel: viewModel)
+        GeometryReader{ geometry in
+            body(for: geometry.size)
         }.padding()
     }
     
-    
-}
-
-//actual clock face
-struct ClockFaceView: View{
-    
-    var viewModel: WorldClockViewModel
-    
-    
-    var body: some View{
-        GeometryReader{ geometry in
-            body(for: geometry.size)
-        }
-    }
-    
+    //actual clock face builder
     @ViewBuilder
     func body(for size: CGSize) -> some View{
         ZStack{
@@ -34,7 +20,7 @@ struct ClockFaceView: View{
                 tick in
                 self.tick(at: tick)
             }
-            
+             
             //pointers (h,m,s)
             Pointer(type: .second, worldClockModel: viewModel.getTime()) //seconds
             Pointer(type: .minute, worldClockModel: viewModel.getTime()) //minutes
@@ -60,6 +46,7 @@ struct ClockFaceView: View{
         }
         .rotationEffect(.degrees(Double(tick)/60 * 360)) //rotate tick
     }
+    
 }
 
 
