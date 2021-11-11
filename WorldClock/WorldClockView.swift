@@ -32,7 +32,7 @@ struct WorldClockView: View{
             Color.clear
         }
         .aspectRatio(contentMode: .fit)
-        .frame(width: size.width, height: size.width)
+        .frame(width: min(size.width, size.height), height: min(size.width, size.height))
     }
     
     //function to create tick marks
