@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0A3DE62746D5D3006F7141 /* ClockFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A3DE52746D5D3006F7141 /* ClockFace.swift */; };
 		DD3319A92736C1DA0055D81F /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3319A82736C1DA0055D81F /* Pointer.swift */; };
 		DD94D7A2272DC9D800EF41DF /* WorldClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94D7A1272DC9D800EF41DF /* WorldClockApp.swift */; };
 		DD94D7A4272DC9D800EF41DF /* WorldClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94D7A3272DC9D800EF41DF /* WorldClockView.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD0A3DE52746D5D3006F7141 /* ClockFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockFace.swift; sourceTree = "<group>"; };
 		DD2B6A47273D71230030E7F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD3319A82736C1DA0055D81F /* Pointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pointer.swift; sourceTree = "<group>"; };
 		DD94D79E272DC9D800EF41DF /* WorldClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +70,7 @@
 				DD94D7B0272DCB7600EF41DF /* WorldClockViewModel.swift */,
 				DD94D7B2272DCBB200EF41DF /* WorldClockModel.swift */,
 				DD3319A82736C1DA0055D81F /* Pointer.swift */,
+				DD0A3DE52746D5D3006F7141 /* ClockFace.swift */,
 			);
 			path = WorldClock;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD3319A92736C1DA0055D81F /* Pointer.swift in Sources */,
+				DD0A3DE62746D5D3006F7141 /* ClockFace.swift in Sources */,
 				DD94D7A4272DC9D800EF41DF /* WorldClockView.swift in Sources */,
 				DD94D7B3272DCBB200EF41DF /* WorldClockModel.swift in Sources */,
 				DD94D7A2272DC9D800EF41DF /* WorldClockApp.swift in Sources */,

@@ -15,41 +15,12 @@ struct WorldClockView: View{
     //actual clock face builder
     @ViewBuilder
     func body(for size: CGSize) -> some View{
-        ZStack{
-            //create one tick for each second
-            ForEach(0..<60){
-                tick in
-                self.tick(at: tick, with: min(size.width, size.height))
-            }
-             
-            //pointers (h,m,s)
-            Pointer(type: .second, worldClockModel: viewModel.getTime(), size: size) //seconds
-            Pointer(type: .minute, worldClockModel: viewModel.getTime(), size: size) //minutes
-            Pointer(type: .hour, worldClockModel: viewModel.getTime(), size: size) //hours
-            
-            //clockface midpoint
-            MidPoint(radius: 14, minSize: min(size.width, size.height)).fill(Color.orange)
-            
-            Color.clear
-        }
-        .aspectRatio(contentMode: .fit)
-        .frame(width: min(size.width, size.height), height: min(size.width, size.height))
+        ClockFace(size: size, worldClockModel: viewModel.getTime())
+            .aspectRatio(contentMode: .fit)
+            .frame(width: min(size.width, size.height), height: min(size.width, size.height))
     }
     
-    //function to create tick marks
-    func tick(at tick: Int, with minSize: CGFloat) -> some View{
-        // calc scaling factor, using 348 as suitable size
-        let scaleFactor = minSize/348
-        return VStack{
-            Rectangle()
-                .fill(tick % 5 == 0 ? Color.black : Color.gray)
-                .opacity(1)
-                .frame(width: tick % 15 == 0 ? 3.5 : 2.2, height: tick % 15 == 0 ? 17 : tick % 5 == 0 ? 14 : 10)
-                .transformEffect(CGAffineTransform(a: scaleFactor, b: 0.0, c: 0.0, d: scaleFactor, tx: 0, ty: 0))
-            Spacer()
-        }
-        .rotationEffect(.degrees(Double(tick)/60 * 360)) //rotate tick
-    }
+    
     
 }
 

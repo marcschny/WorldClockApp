@@ -6,16 +6,16 @@ class WorldClockViewModel: ObservableObject{
     @Published private var model: WorldClockModel
     
     init(){
-        model = WorldClockViewModel.createClock()
+        model = WorldClockViewModel.loadTime()
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
     }
     
     //runs each second
     @objc func fireTimer(){
-        model = WorldClockModel.init()
+        model = WorldClockViewModel.loadTime()
     }
     
-    static func createClock() -> WorldClockModel{
+    static func loadTime() -> WorldClockModel{
         return WorldClockModel()
     }
     
