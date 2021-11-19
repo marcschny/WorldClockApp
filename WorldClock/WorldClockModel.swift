@@ -8,6 +8,10 @@ struct WorldClockModel{
     var seconds: Int = 0
     var city: String = ""
     
+    
+    //if an invalid identifier has been passed:
+    //  - set city name to "Invalid Identifier"
+    //  - set city time to 00:00:00
     init(identifier: String){
         
         //init calendar
@@ -16,34 +20,37 @@ struct WorldClockModel{
         //get seconds to add
         let secondsToAdd = secondsToAdd(identifier: identifier)
         
-        //get city name
-        let cityName = getCityName(identifier: identifier)
+        //get city name (and replace underscores with spaces)
+        let cityName = secondsToAdd != -1 ? getCityName(identifier: identifier).replacingOccurrences(of: "_", with: " ") : "Invalid Identifier"
         
-        //init clock
-        let fullHours = calendar.component(.hour, from: Date().addingTimeInterval(TimeInterval(secondsToAdd)))
+        //init clock (if secondsToAdd is -1, set clock to 00:00:00)
+        let fullHours = secondsToAdd != -1 ? calendar.component(.hour, from: Date().addingTimeInterval(TimeInterval(secondsToAdd))) : 0
         hours = fullHours <= 12 ? fullHours : fullHours-12
-        minutes = calendar.component(.minute, from: Date().addingTimeInterval(TimeInterval(secondsToAdd)))
-        seconds = calendar.component(.second, from: Date())
+        minutes = secondsToAdd != -1 ? calendar.component(.minute, from: Date().addingTimeInterval(TimeInterval(secondsToAdd))) : 0
+        seconds = secondsToAdd != -1 ? calendar.component(.second, from: Date()) : 0
         city = String(cityName)
         
     }
     
-    
+    //returns -1 if an invalid identifier has been passed
     private func secondsToAdd(identifier: String) -> Int{
-            //TODO error handling for wrong identifiers
+        
             //get this and identifiers timezone
             let thisTimezone = TimeZone.current
-            let cityTimezone = TimeZone(identifier: identifier)!
-            
-            //get seconds from GTM from this and identifiers timezone
-            let thisSecondsFromGMT = thisTimezone.secondsFromGMT()
-            let citySecondsFromGMT = cityTimezone.secondsFromGMT()
-            
-            //prints
-            print(thisTimezone.secondsFromGMT())
-            print(cityTimezone.secondsFromGMT())
+            let cityTimezone = TimeZone(identifier: identifier)
         
-            return citySecondsFromGMT-thisSecondsFromGMT
+            if(cityTimezone==nil){
+                debugPrint("Wrong Identifier")
+                return -1
+            }else{
+                //get seconds from GTM from this and identifiers timezone
+                let thisSecondsFromGMT = thisTimezone.secondsFromGMT()
+                let citySecondsFromGMT = cityTimezone?.secondsFromGMT()
+                
+                return citySecondsFromGMT!-thisSecondsFromGMT
+            }
+    
+    
     }
     
     private func getCityName(identifier: String) -> String{

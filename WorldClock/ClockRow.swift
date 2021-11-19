@@ -7,7 +7,16 @@ struct ClockRow: View{
     
     var body: some View{
         HStack{
-            Text(viewModel.getTime().city).font(.title)
+            
+            //highlight invalid identifiers
+            if(viewModel.getTime().city == "Invalid Identifier"){
+                Text(viewModel.getTime().city).font(.title)
+                    .italic()
+                    .foregroundColor(.red)
+            }else{
+                Text(viewModel.getTime().city).font(.title)
+            }
+            
             Spacer()
             ClockFace(size: CGSize(width: CGFloat(120), height: CGFloat(120)), worldClockModel: viewModel.getTime())
                 .aspectRatio(contentMode: .fit)

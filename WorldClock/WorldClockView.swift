@@ -4,8 +4,7 @@ import SwiftUI
 struct WorldClockView: View{
     
     var cities: Array<String> = [
-        "Europe/Berlin",
-        "Europe/London",
+        "Europe/Berlin","Europe/London",
         "Australia/Brisbane",
         "Australia/Darwin",
         "Asia/Seoul",
@@ -15,6 +14,7 @@ struct WorldClockView: View{
         "Asia/Beirut",
         "Africa/Nairobi",
         "America/Havana",
+        "Europe/Bernn", //invalid identifier
         "Antarctica/South_Pole"
     ]
     
@@ -31,11 +31,12 @@ struct WorldClockView: View{
     func body(for size: CGSize) -> some View{
         VStack{
             Spacer()
+            Text("World Clock").font(.system(size: 42, design: .rounded))
             ScrollView(.vertical, showsIndicators: false){
                 VStack{
                     ForEach(cities, id: \.self){ city in
                         ClockRow(viewModel: WorldClockViewModel(timezone: city))
-                        Divider()
+                        if city != cities.last { Divider() }
                     }
                 }
             }
