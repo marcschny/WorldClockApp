@@ -66,7 +66,7 @@ struct MidPoint: Shape{
 
 struct ContentView_Previews_ClockFace: PreviewProvider {
     static var previews: some View {
-        WorldClockView(viewModel: WorldClockViewModel())
+        WorldClockView()
     }
 }
 

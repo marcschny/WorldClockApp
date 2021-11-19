@@ -25,7 +25,7 @@ struct Pointer: View{
             switch self{
                 case .hour: return 9
                 case .minute: return 6.5
-                case .second: return 2
+            case .second: return 2.5
             }
         }
         
@@ -79,7 +79,7 @@ struct Pointer: View{
 
 struct ContentView_Previews_Pointer: PreviewProvider {
     static var previews: some View {
-        WorldClockView(viewModel: WorldClockViewModel())
+        WorldClockView()
     }
 }
 

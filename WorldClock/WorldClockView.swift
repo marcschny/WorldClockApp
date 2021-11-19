@@ -3,7 +3,6 @@ import SwiftUI
 //TODO: replace hard coded values
 struct WorldClockView: View{
     
-    @ObservedObject var viewModel: WorldClockViewModel
     
     var body: some View{
         GeometryReader{ geometry in
@@ -15,9 +14,22 @@ struct WorldClockView: View{
     //actual clock face builder
     @ViewBuilder
     func body(for size: CGSize) -> some View{
-        ClockFace(size: size, worldClockModel: viewModel.getTime())
-            .aspectRatio(contentMode: .fit)
-            .frame(width: min(size.width, size.height), height: min(size.width, size.height))
+        VStack{
+            Spacer()
+            ScrollView(.vertical, showsIndicators: false){
+                VStack{
+                    ClockRow(viewModel: WorldClockViewModel(timezone: "Europe/Berlin"))
+                    Divider()
+                    ClockRow(viewModel: WorldClockViewModel(timezone: "Europe/London"))
+                    Divider()
+                    ClockRow(viewModel: WorldClockViewModel(timezone: "Australia/Brisbane"))
+                    Divider()
+                    ClockRow(viewModel: WorldClockViewModel(timezone: "Australia/Darwin"))
+                    Divider()
+                    ClockRow(viewModel: WorldClockViewModel(timezone: "Asia/Seoul"))
+                }
+            }
+        }
     }
     
     
@@ -27,6 +39,6 @@ struct WorldClockView: View{
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        WorldClockView(viewModel: WorldClockViewModel())
+        WorldClockView()
     }
 }
