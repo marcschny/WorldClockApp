@@ -3,6 +3,21 @@ import SwiftUI
 //TODO: replace hard coded values
 struct WorldClockView: View{
     
+    var cities: Array<String> = [
+        "Europe/Berlin",
+        "Europe/London",
+        "Australia/Brisbane",
+        "Australia/Darwin",
+        "Asia/Seoul",
+        "America/Dominica",
+        "Indian/Maldives",
+        "Indian/Mahe",
+        "Asia/Beirut",
+        "Africa/Nairobi",
+        "America/Havana",
+        "Antarctica/South_Pole"
+    ]
+    
     
     var body: some View{
         GeometryReader{ geometry in
@@ -18,15 +33,10 @@ struct WorldClockView: View{
             Spacer()
             ScrollView(.vertical, showsIndicators: false){
                 VStack{
-                    ClockRow(viewModel: WorldClockViewModel(timezone: "Europe/Berlin"))
-                    Divider()
-                    ClockRow(viewModel: WorldClockViewModel(timezone: "Europe/London"))
-                    Divider()
-                    ClockRow(viewModel: WorldClockViewModel(timezone: "Australia/Brisbane"))
-                    Divider()
-                    ClockRow(viewModel: WorldClockViewModel(timezone: "Australia/Darwin"))
-                    Divider()
-                    ClockRow(viewModel: WorldClockViewModel(timezone: "Asia/Seoul"))
+                    ForEach(cities, id: \.self){ city in
+                        ClockRow(viewModel: WorldClockViewModel(timezone: city))
+                        Divider()
+                    }
                 }
             }
         }
