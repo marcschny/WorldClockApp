@@ -1,9 +1,11 @@
 import SwiftUI
 
-//TODO: replace hard coded values
+//TODO: when opened, select a default world clock (for ipad only)
+//TODO: DetailsView Cityname not visible on ipads 
 struct WorldClockView: View{
     
-    var cities: Array<String> = [
+    //MARK: - List of cities
+    let cities: Array<String> = [
         "Europe/Berlin","Europe/London",
         "Australia/Brisbane",
         "Australia/Darwin",
@@ -32,11 +34,16 @@ struct WorldClockView: View{
         NavigationView{
             VStack{
                 Spacer()
-                Text("World Clock").font(.system(size: 42, design: .rounded))
+                Text("World Clock")
+                    .font(.system(size: 44, design: .rounded))
+                    .foregroundColor(.orange)
                 ScrollView(.vertical, showsIndicators: false){
                     VStack{
                         ForEach(cities, id: \.self){ city in
-                            ClockRow(viewModel: WorldClockViewModel(timezone: city))
+                            ClockRow(
+                                viewModel: WorldClockViewModel(timezone: city),
+                                height: max(size.width, size.height)
+                            )
                             if city != cities.last { Divider() }
                         }
                     }
@@ -44,6 +51,7 @@ struct WorldClockView: View{
             }
             .navigationBarTitle("World Clock")
             .navigationBarHidden(true)
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
     

@@ -21,25 +21,45 @@ struct ClockFace: View{
             Pointer(type: .hour, worldClockModel: worldClockModel, minSize: min(size.width, size.height)) //hours
             
             //clockface midpoint
-            MidPoint(radius: 14, minSize: min(size.width, size.height))
-                .fill(Color.orange)
+            MidPoint(radius: defaultMidPointRadius, minSize: min(size.width, size.height))
+                .fill(defaultMidPointColor)
             
         }
     }
     
     //function to create tick marks
     func tick(at tick: Int) -> some View{
+        
         // calc scaling factor, using 348 as suitable size
         let scaleFactor = min(size.width, size.height)/348
+        
         return VStack{
             Rectangle()
-                .fill(tick % 5 == 0 ? Color.black : Color.gray)
-                .frame(width: tick % 15 == 0 ? 4.2 : 3, height: tick % 15 == 0 ? 17 : tick % 5 == 0 ? 14 : 10)
+                .fill(tick % 5 == 0 ? thickTickColor : thinTickColor)
+                .frame(
+                    width: tick % 15 == 0 ? thickTickWidth : thinTickWidth,
+                    height: tick % 15 == 0 ? thickTickLength : tick % 5 == 0 ? mediumTickLength : thinTickLength)
                 .transformEffect(CGAffineTransform(a: scaleFactor, b: 0.0, c: 0.0, d: scaleFactor, tx: 0, ty: 0))
             Spacer()
         }
         .rotationEffect(.degrees(Double(tick)/60 * 360)) //rotate tick
     }
+    
+    //MARK: - Clock Face Constants
+    private let defaultMidPointRadius = CGFloat(14)
+    private let defaultMidPointColor = Color.orange
+    
+    private let thickTickColor = Color.black
+    private let thickTickWidth = CGFloat(4.2)
+    private let thickTickLength = CGFloat(17)
+    
+    private let thinTickColor = Color.gray
+    private let thinTickWidth = CGFloat(3)
+    private let thinTickLength = CGFloat(10)
+    
+    private let mediumTickLength = CGFloat(14)
+    
+    
 }
 
 
@@ -50,8 +70,10 @@ struct MidPoint: Shape{
     var minSize: CGFloat
     
     func path(in rect: CGRect) -> Path{
+        
         // calc scaling factor, using 348 as suitable size
         let scaleFactor = minSize/348
+        
         // calc center of rect
         let center = CGPoint(x: (rect.midX/scaleFactor-(radius/2)), y: (rect.midY/scaleFactor-(radius/2)))
         
@@ -69,4 +91,3 @@ struct ContentView_Previews_ClockFace: PreviewProvider {
         WorldClockView()
     }
 }
-

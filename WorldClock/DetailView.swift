@@ -27,7 +27,6 @@ struct DetailView: View{
                 Text(viewModel.getCityName()).font(.largeTitle)
                     .foregroundColor(.black)
                     .frame(width: min(size.width, size.height), height: min(size.width, size.height), alignment: Alignment.center)
-                
             }
         }else{
             HStack(){

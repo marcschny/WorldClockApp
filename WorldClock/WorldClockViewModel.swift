@@ -26,6 +26,9 @@ class WorldClockViewModel: ObservableObject{
         return model
     }
     
+    
+    //returns name of the city by splitting the identifier
+    // and replaces underscores with spaces
     func getCityName() -> String{
         model.identifier != nil ?
             String(model.identifier!.split(separator: "/").last!)
