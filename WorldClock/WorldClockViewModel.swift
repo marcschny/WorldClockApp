@@ -26,6 +26,13 @@ class WorldClockViewModel: ObservableObject{
         return model
     }
     
+    func getCityName() -> String{
+        model.identifier != nil ?
+            String(model.identifier!.split(separator: "/").last!)
+                .replacingOccurrences(of: "_", with: " ")
+            : "Invalid Identifier"
+    }
+    
     
     
 }

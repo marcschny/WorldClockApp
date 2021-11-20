@@ -29,17 +29,21 @@ struct WorldClockView: View{
     //actual clock face builder
     @ViewBuilder
     func body(for size: CGSize) -> some View{
-        VStack{
-            Spacer()
-            Text("World Clock").font(.system(size: 42, design: .rounded))
-            ScrollView(.vertical, showsIndicators: false){
-                VStack{
-                    ForEach(cities, id: \.self){ city in
-                        ClockRow(viewModel: WorldClockViewModel(timezone: city))
-                        if city != cities.last { Divider() }
+        NavigationView{
+            VStack{
+                Spacer()
+                Text("World Clock").font(.system(size: 42, design: .rounded))
+                ScrollView(.vertical, showsIndicators: false){
+                    VStack{
+                        ForEach(cities, id: \.self){ city in
+                            ClockRow(viewModel: WorldClockViewModel(timezone: city))
+                            if city != cities.last { Divider() }
+                        }
                     }
                 }
             }
+            .navigationBarTitle("World Clock")
+            .navigationBarHidden(true)
         }
     }
     
