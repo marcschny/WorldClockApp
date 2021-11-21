@@ -1,5 +1,11 @@
-### World Clock App (iOS)
+## World Clock App (iOS)
 
-Team: Marc Schnydrig
+###Team
+Marc Schnydrig
 
-Abgabe bis: 22.11.2021 18:00
+###Screenshots
+![image](https://github.com/marcschny/WorldClockApp/blob/master/WorldClock/screenshots/screenshot1.png)
+![image](https://github.com/marcschny/WorldClockApp/blob/master/WorldClock/screenshots/screenshot2.png)
+![image](https://github.com/marcschny/WorldClockApp/blob/master/WorldClock/screenshots/screenshot3.png)
+
+
