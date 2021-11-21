@@ -28,7 +28,9 @@ struct DetailView: View{
                     .foregroundColor(.black)
                     .frame(width: size.width, height: size.height - min(size.width, size.height), alignment: Alignment.center)
             }
-        }else{
+        }
+        //if landscape mode
+        else{
             HStack(){
                 ClockFace(size: size, worldClockModel: viewModel.getTime())
                     .aspectRatio(contentMode: .fit)

@@ -11,7 +11,7 @@ struct Pointer: View{
     enum PointerType{
         case hour, minute, second
         
-        //associated color
+        //get color
         var color: Color{
             switch self{
                 case .hour: return .black
@@ -20,7 +20,7 @@ struct Pointer: View{
             }
         }
         
-        //associated pointer width
+        //get pointer width
         var width: CGFloat{
             switch self{
                 case .hour: return 9
@@ -29,7 +29,7 @@ struct Pointer: View{
             }
         }
         
-        //associated (relative) pointer length
+        //get (relative) pointer length
         var length: CGFloat{
             switch self{
                 case .hour: return 0.55
@@ -38,7 +38,7 @@ struct Pointer: View{
             }
         }
         
-        //associated pointer angle
+        //get pointer angle
         func angle(worldClockModel: WorldClockModel) -> Angle{
             switch self{
             case .hour: return Angle(degrees: (Double(worldClockModel.hours) + Double(worldClockModel.minutes)/60) * timeMultiplier(type: .hour))
@@ -47,7 +47,7 @@ struct Pointer: View{
             }
         }
         
-        //time multiplier to calculate angle
+        //get time multiplier to calculate angle
         func timeMultiplier(type: PointerType) -> Double{
             switch self{
             case .hour: return 360/12
@@ -61,8 +61,10 @@ struct Pointer: View{
     
     var body: some View{
         GeometryReader{ geo in
+            
             // calc scaling factor, using 348 as suitable size
             let scaleFactor = minSize/348
+            
             Path{ p in
                 let center = CGPoint(x: geo.size.width/2, y: geo.size.height/2)
                 p.move(to: center)

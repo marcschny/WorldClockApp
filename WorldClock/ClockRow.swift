@@ -6,6 +6,7 @@ struct ClockRow: View{
     @ObservedObject var viewModel: WorldClockViewModel
     var height: CGFloat
     
+    
     var body: some View{
         NavigationLink(
             destination: DetailView(

@@ -36,8 +36,9 @@ struct WorldClockModel{
             let thisTimezone = TimeZone.current
             let cityTimezone = TimeZone(identifier: identifier)
         
+            //check for valid identifier
             if(cityTimezone==nil){
-                //debugPrint("Wrong Identifier")
+                debugPrint("Wrong Identifier")
                 return -1
             }else{
                 //get seconds from GTM from this and identifiers timezone

@@ -1,7 +1,6 @@
 import SwiftUI
 
-//TODO: when opened, select a default world clock (for ipad only)
-//TODO: DetailsView Cityname not visible on ipads 
+
 struct WorldClockView: View{
     
     //MARK: - List of cities
